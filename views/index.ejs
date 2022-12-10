@@ -1,0 +1,96 @@
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid bg-white p-3">
+            <h2>Welcome, <%= req.user.firstname %>
+                    <%= req.user.lastname %>
+            </h2>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h4 class="my-2">Student Data</h4>
+                    <hr />
+                    <div class="row mb-3">
+                        <div class="col-md-2 col-6">
+                            <b>First Name</b>
+                        </div>
+                        <div class="col-md-10 col-6">
+                            <p class="text-left">
+                                <%= req.user.firstname %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-2 col-6">
+                            <b>Middle Name</b>
+                        </div>
+                        <div class="col-md-10 col-6">
+                            <p class="text-left">
+                                <%= req.user.middlename %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-2 col-6">
+                            <b>Last Name</b>
+                        </div>
+                        <div class="col-md-10 col-6">
+                            <p class="text-left">
+                                <%= req.user.lastname %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-2 col-6">
+                            <b>Email</b>
+                        </div>
+                        <div class="col-md-10 col-6">
+                            <p class="text-left">
+                                <%= req.user.email %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-2 col-6">
+                            <b>Mat Number</b>
+                        </div>
+                        <div class="col-md-10 col-6">
+                            <p class="text-left">
+                                <%= req.user.matno %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-2 col-6">
+                            <b>Department</b>
+                        </div>
+                        <div class="col-md-10 col-6">
+                            <p class="text-left">
+                                <%= req.user.department %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-2 col-6">
+                            <b>Level</b>
+                        </div>
+                        <div class="col-md-10 col-6">
+                            <p class="text-left">
+                                <%= req.user.level %>L
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p class="ml-2 mt-2">Always keep your profile updated.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <p>Copyright © 2022 . All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
