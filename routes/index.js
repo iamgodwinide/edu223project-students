@@ -40,7 +40,7 @@ router.get("/results", ensureAuthenticated, async (req, res) => {
         }
 
 
-        results.forEach(r => {
+        results.forEach((r, index) => {
             if (resultobj[r.session + r.semester]) {
                 resultobj[r.session + r.semester].push(r);
             } else {
@@ -74,11 +74,11 @@ router.get("/results/:session1/:session2/:course/:level/:semester", ensureAuthen
             level,
             matno: req.user.matno,
             semester: semester.toLowerCase()
-        })).reverse();
-
+        }))
         const totalcredits = results.reduce((prev, curr) => prev + Number(curr.credit), 0)
-
-        return res.render("viewResults", { page_title: "EDUSOP | Results", results, totalcredits, calculate_gpa, req });
+        setTimeout(() => {
+            return res.render("viewResults", { page_title: "EDUSOP | Results", results, totalcredits, calculate_gpa, req });
+        }, 1000);
     } catch (err) {
         console.log(err);
         return res.redirect("/")
