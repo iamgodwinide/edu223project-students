@@ -75,8 +75,9 @@ router.get("/results/:session1/:session2/:course/:level/:semester", ensureAuthen
             matno: req.user.matno,
             semester: semester.toLowerCase()
         }))
-        const totalcredits = results.reduce((prev, curr) => prev + Number(curr.credit), 0)
+        const totalcredits = results.reduce((prev, curr) => prev + Number(curr.credit), 0);
         setTimeout(() => {
+            console.log(results);
             return res.render("viewResults", { page_title: "EDUSOP | Results", results, totalcredits, calculate_gpa, req });
         }, 1000);
     } catch (err) {
