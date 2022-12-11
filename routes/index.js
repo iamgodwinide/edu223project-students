@@ -39,7 +39,6 @@ router.get("/results", ensureAuthenticated, async (req, res) => {
             return res.render("results", { page_title: "EDUSOP | Results", results: [], req });
         }
 
-        console.log(results);
 
         results.forEach(r => {
             if (resultobj[r.session + r.semester]) {
@@ -47,14 +46,18 @@ router.get("/results", ensureAuthenticated, async (req, res) => {
             } else {
                 resultobj[r.session + r.semester] = [r];
             }
-        });
 
-        Object.keys(resultobj).forEach((key, index, arr) => {
-            resultsArr.push(resultobj[key])
-            if ((index + 1) == arr.length) {
-                return res.render("results", { page_title: "EDUSOP | Results", results: resultsArr.reverse(), req });
+            if ((index + 1) === results.length) {
+                Object.keys(resultobj).forEach((key, index, arr) => {
+                    resultsArr.push(resultobj[key])
+                    if ((index + 1) == arr.length) {
+                        return res.render("results", { page_title: "EDUSOP | Results", results: resultsArr.reverse(), req });
+                    }
+                });
             }
         });
+
+
     } catch (err) {
         console.log(err);
         return res.redirect("/")
