@@ -39,6 +39,8 @@ router.get("/results", ensureAuthenticated, async (req, res) => {
             return res.render("results", { page_title: "EDUSOP | Results", results: [], req });
         }
 
+        console.log(results);
+
         results.forEach(r => {
             if (resultobj[r.session + r.semester]) {
                 resultobj[r.session + r.semester].push(r);
