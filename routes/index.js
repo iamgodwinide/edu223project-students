@@ -64,22 +64,18 @@ router.get("/results", ensureAuthenticated, async (req, res) => {
     }
 });
 
-router.get("/results/:session1/:session2/:course/:level/:semester", ensureAuthenticated, async (req, res) => {
+router.get("/results/:session1/:session2/:level/:semester", ensureAuthenticated, async (req, res) => {
     try {
         const { session1, session2, course, level, semester } = req.params;
 
         const results = (await Result.find({
             session: `${session1}/${session2}`,
-            course: course.toUpperCase(),
             level,
             matno: req.user.matno,
             semester: semester.toLowerCase()
         }))
         const totalcredits = results.reduce((prev, curr) => prev + Number(curr.credit), 0);
-        setTimeout(() => {
-            console.log(results);
-            return res.render("viewResults", { page_title: "EDUSOP | Results", results, totalcredits, calculate_gpa, req });
-        }, 1000);
+        return res.render("viewResults", { page_title: "EDUSOP | Results", results, totalcredits, calculate_gpa, req });
     } catch (err) {
         console.log(err);
         return res.redirect("/")
