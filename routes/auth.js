@@ -58,7 +58,7 @@ router.post("/edit-profile", ensureAuthenticated, async (req, res) => {
             req.flash("error_msg", "please provide all required fields");
             return res.redirect("/edit-profile");
         }
-        await User.updateOne({ _id: req.user.id }, { firstname, middlename, lastname, email, level, phone });
+        await User.updateOne({ _id: req.user.id }, { firstname, middlename, lastname, email: email.toLowerCase(), level, phone });
         req.flash("success_msg", "account updated sucessfully");
         return res.redirect("/edit-profile");
     } catch (err) {
