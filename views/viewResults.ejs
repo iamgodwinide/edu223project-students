@@ -10,7 +10,7 @@
                         <hr />
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>First Name</p>
+                                <b>First Name</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left">
@@ -20,7 +20,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>Middle Name</p>
+                                <b>Middle Name</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left">
@@ -30,7 +30,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>Last Name</p>
+                                <b>Last Name</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left">
@@ -40,7 +40,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>Mat Number</p>
+                                <b>Mat Number</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left">
@@ -50,7 +50,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>Session</p>
+                                <b>Session</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>Level</p>
+                                <b>Level</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left">
@@ -70,7 +70,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>Semester</p>
+                                <b>Semester</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left" style="text-transform: capitalize;">
@@ -80,7 +80,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>Total Credits</p>
+                                <b>Total Credits</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-2 col-6">
-                                <p>GPA</p>
+                                <b>GPA</b>
                             </div>
                             <div class="col-md-10 col-6">
                                 <p class="text-left">
@@ -99,11 +99,16 @@
                             </div>
                         </div>
                         <div class="table-responsive table--no-card m-b-30 p-3">
+                            <div style="text-align: right;">
+                                <!-- <a href="/print/results/<%= results[0].session %>/<%= results[0].level %>/<%= results[0].semester%>"
+                                    class="btn btn-success mb-3">
+                                    <i class="fas fa-print"></i>
+                                    Print Result</a> -->
+                            </div>
                             <table class="table table-borderless table-striped table-earning" id="students">
                                 <thead>
                                     <tr>
                                         <th class="text-left">Course</th>
-                                        <th class="text-left">Score</th>
                                         <th class="text-left">Grade</th>
                                     </tr>
                                 </thead>
@@ -112,9 +117,6 @@
                                         <tr>
                                             <td class="text-left">
                                                 <%= r.course %>
-                                            </td>
-                                            <td class="text-left">
-                                                <%= r.score %>
                                             </td>
                                             <td class="text-left">
                                                 <%= r.grade %>
