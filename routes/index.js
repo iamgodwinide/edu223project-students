@@ -6,6 +6,8 @@ const { ensureAuthenticated } = require("../config/auth");
 const pdf = require("pdf-creator-node");
 const fs = require("fs");
 const path = require("path");
+const departments = require("../constants/departments.json")
+
 
 router.get("/", ensureAuthenticated, async (req, res) => {
     try {
@@ -78,7 +80,7 @@ router.get("/results/:session1/:session2/:level/:semester", ensureAuthenticated,
             semester: semester.toLowerCase()
         }))
         const totalcredits = results.reduce((prev, curr) => prev + Number(curr.credit), 0);
-        return res.render("viewResults", { page_title: "EDUSOP | Results", results, totalcredits, calculate_gpa, req });
+        return res.render("viewResults", { page_title: "EDUSOP | Results", results, totalcredits, calculate_gpa, departments, req });
     } catch (err) {
         console.log(err);
         return res.redirect("/")
